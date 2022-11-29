@@ -1,0 +1,19 @@
+{
+    "Ark Suginami": "カウンセリングサロンArk杉並",
+    "Title Admin Login": "管理ログイン | カウンセリングサロンArk杉並",
+    "Title Admin Screen": "管理画面 | カウンセリングサロンArk杉並",
+    "Screen Admin Login": "管理ログイン画面",
+    "Greeting": "ログイン名[:name]さん、ご機嫌いかがですか？",
+    "Do Logout": "ログアウトする",
+    "Credit" : "2021 ebacorp.inc",
+
+    "Top": "top",
+    "Problem": "課題管理",
+    "Menu": "メニュー管理",
+
+    "Name": "お名前",
+    "Email Address": "メールアドレス",
+    "Login Id": "ログインID",
+    "Password": "パスワード",
+    "Authentication": "認証"
+}

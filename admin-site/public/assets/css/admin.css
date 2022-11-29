@@ -1,0 +1,380 @@
+@charset "utf-8";
+
+/******** 共通 ********/
+body {
+  background-color: #ddd;
+  margin: 0px;
+}
+
+main {
+  max-width: 1028px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table .sort-button {
+  display: block;
+}
+
+table .list-button {
+  color: black;
+  background: #eee 0 0 / cover no-repeat;
+  border: 1px #333 solid;
+  padding: 0 2px;
+}
+
+td,
+th {
+  border: 1px #333 solid;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  display: block;
+}
+
+input[type="submit"] {
+  padding: 1px 12px;
+}
+
+.container {
+  position: relative;
+  max-width: 1100px;
+  min-height: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+header .top-subject p {
+  margin: 0px;
+}
+
+header .top-subject {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 4px;
+}
+
+header .top-title {
+  margin: 1px 4px 0px;
+}
+
+.gl-nav ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0px ;
+  display: flex;
+}
+
+.gl-nav a {
+  display: block;
+  width: 110px;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+}
+
+.gl-nav a:hover {
+  transition: .3s ease;
+  color: #fff;
+  opacity: .7;
+}
+
+.gl-nav li~li a {
+  border-left: 1px solid rgb(73, 118, 255);
+}
+
+footer {
+  height: 70px;
+}
+
+.credit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 10px;
+}
+
+.error {
+  height: 1rem;
+  color: RED;
+}
+
+.msg-complete {
+  color: blue;
+  font-weight: bold;
+}
+
+.subject {
+  padding: 5px;
+  display: inline-block;
+  background: #ccc 0 0 / cover no-repeat;
+  border: 1px #333 solid;
+}
+
+.center-align {
+  text-align: center;
+}
+
+.form-submit {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-repair {
+  position: absolute;
+  left: 0;
+  border: none;
+  background: GRAY 0 0 / cover no-repeat;
+  color: WHITE;
+}
+
+/* 一覧画面用 */
+.main-list table {
+  text-align: center;
+}
+
+.main-list table th {
+  font-weight: normal;
+}
+
+.main-list table td {
+  padding: 4px 0;
+}
+
+/* 入力画面用 */
+.main-input table th {
+  width: 20%;
+}
+
+.main-input table td {
+  width: 80%;
+}
+
+/* 確認画面用 */
+.main-confirm table th {
+  width: 20%;
+}
+
+.main-confirm table td {
+  width: 80%;
+  padding-left: 2px;
+  vertical-align: top;
+}
+
+/******** ログイン画面 (login) ********/
+#login form {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #eee;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+#login input[type="text"] {
+  width: auto;
+}
+
+#login input[type="submit"] {
+  padding: 1px 6px;
+}
+
+#login table {
+  margin-right: auto;
+  margin-left: auto;
+  width: auto;
+  border-collapse: separate;
+}
+
+#login table th,
+#login table td {
+  border: none;
+}
+
+#login table th {
+  text-align: right;
+}
+
+#login h1 {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%,0%);
+  white-space: nowrap;
+}
+
+/******** 課題管理 (problem) ********/
+/* 一覧画面 */
+#problem .main-list table td:nth-of-type(1) {    /* ID */
+  width: 2rem;
+}
+#problem .main-list table td:nth-of-type(2) {    /* 課題名 */
+  text-align: left;
+  padding-left: 2px;
+  max-width: 400px;
+  overflow-wrap: break-word;
+}
+#problem .main-list table td:nth-of-type(3) {    /* ステータス */
+  width: 6rem;
+}
+#problem .main-list table td:nth-of-type(4) {    /* 登録日 */
+  width: 12rem;
+}
+#problem .main-list table td:nth-of-type(5) {    /* 更新日時 */
+  width: 12rem;
+}
+#problem .main-list table td:nth-of-type(6) {    /* ボタン */
+  width: 6.5rem;
+}
+
+/* 確認画面 */
+#problem .main-confirm table tr:nth-last-of-type(2) td {   /* 対応策 */
+  height: 134px;
+}
+#problem .main-confirm table tr:nth-last-of-type(1) td {   /* 備考 */
+  height: 134px;
+}
+
+/******** メニュー管理 (menu) ********/
+/* 一覧画面 */
+#menu .main-list table td:nth-of-type(1) {    /* ID */
+  width: 2rem;
+}
+#menu .main-list table td:nth-of-type(2) {    /* メニュー名 */
+  text-align: left;
+  padding-left: 2px;
+  max-width: 500px;
+  overflow-wrap: break-word;
+}
+#menu .main-list table td:nth-of-type(3) {    /* 登録日時 */
+  width: 12rem;
+}
+#menu .main-list table td:nth-of-type(4) {    /* 更新日時 */
+  width: 12rem;
+}
+#menu .main-list table td:nth-of-type(5) {    /* ボタン */
+  width: 6.5rem;
+  padding: 1px 0;
+}
+
+#menu .main-list table form {
+  display: inline-block;
+}
+
+#menu .main-list table form .list-submit {
+  padding: 0 2px;
+  margin: 0;
+  font-size: 1rem;
+  background: #eee 0 0 / cover no-repeat;
+  border: 1px #333 solid;
+  cursor: pointer;
+}
+
+/* 入力画面 */
+#menu .main-input td {
+  padding: 8px;
+}
+
+#menu .main-input th span {
+  color: RED;
+}
+
+#menu .main-input .detail-turn {    /* 表示順 */
+  width: auto;
+  text-align: center;
+}
+#menu .main-input .detail-name {    /* 名前 */
+  width: 32%;
+}
+#menu .main-input .detail-price {   /* 料金 */
+  width: 32%;
+}
+
+#menu .main-input tr:nth-of-type(1) td input[type="text"] {    /* メニュー名 */
+  width: 26rem;
+}
+#menu .main-input tr:nth-of-type(4) td input[type="number"] {    /* 表示順 */
+  width: 10rem;
+}
+
+#menu .main-input .detail-turn input[type="number"] {   /* 表示順 */
+  width: 3rem;
+}
+#menu .main-input .detail-name input[type="text"] {     /* 名前 */
+  width: 82%;
+}
+#menu .main-input .detail-price input[type="text"] {    /* 料金 */
+  width: 82%;
+}
+
+#menu .main-input .box-error {
+  background-color: rgba(255, 0, 0, 0.100);
+  padding: 10px;
+  margin-bottom: 1em;
+  border: 2px solid rgb(215, 0, 0);
+  border-left: 5px solid rgb(215, 0, 0);
+}
+
+#menu .main-input .box-error ul {
+  padding-left: 26px;
+  margin: 0px auto;
+  color: rgb(215, 0, 0);
+}
+
+#menu .main-input .box-error li::before {
+  position: relative;
+  top: -4px;
+  left: -8px;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  content: '';
+  border-radius: 100%;
+  background-color: rgb(215, 0, 0);
+}
+
+/* 確認画面 */
+#menu .main-confirm td {
+  padding: 8px;
+}
+
+#menu .main-confirm table .td-description {   /* 対応策 */
+  height: 82px;
+  word-break: break-all;
+}
+#menu .main-confirm table .td-remarks {       /* 備考 */
+  height: 82px;
+  word-break: break-all;
+}
+#menu .main-confirm table .td-turn {          /* 表示順 */
+  height: 24px;
+}
+
+#menu .main-confirm .detail-turn,
+#menu .main-confirm .detail-name,
+#menu .main-confirm .detail-price {
+  width: auto;
+  vertical-align: middle;
+}
