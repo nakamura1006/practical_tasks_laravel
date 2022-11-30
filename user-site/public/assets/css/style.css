@@ -1,0 +1,1248 @@
+@media screen and (min-width:768px) {
+
+/* ↓↓↓↓↓ 基本設定 開始 ↓↓↓↓↓ */
+html {
+  font-family: 'ヒラギノ丸ゴ Pro', 'Hiragino Maru Gothic Pro', 'Yu Gothic', YuGothic, 'メイリオ', Meiryo, Arial, sans-serif;
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  color: #444;
+}
+/*.fadein {
+  opacity: 0;
+  transform: translate(0, 50px);
+  transition: all .5s ease;
+}*/
+/*.scrollin {
+  opacity: 1;
+  transform: translate(0, 0);
+}*/
+/* ↑↑↑↑↑ 基本設定 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ ドロワーメニュー 開始 ↓↓↓↓↓ */
+.menu-trigger, .drawer-menu, .overlay {
+  display: none;
+}
+/* ↑↑↑↑↑ ドロワーメニュー 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ ヘッダー 開始 ↓↓↓↓↓ */
+header {
+  padding: 4px 0 5.47vw 0;
+  background: center / cover no-repeat url("../images/sky.jpg");
+}
+header .container {
+  position: relative;
+  max-width: 1040px;
+  padding: 0 8px;
+  margin: 0 auto;
+}
+header .container .top {
+  display: flex;
+  justify-content: space-between;
+}
+header .container .top .left-side img {
+  display: block;
+  height: 6.02vw;
+  max-height: 77px;
+}
+header .container .top .right-side {
+  display: flex;
+  align-items: center;
+}
+header .container .top .right-side img {
+  display: block;
+  height: 3.13vw;
+  max-height: 40px;
+  transition: all .4s;
+}
+header .container .top .right-side a {
+  display: block;
+  border-radius: 50%;
+  background-color: #fff;
+}
+header .container .top .right-side a:hover img {
+  opacity: .6;
+}
+header .container .top .right-side p:first-of-type {
+  margin-right: 4px;
+}
+header .container .top .right-side p:first-of-type img {
+  filter: drop-shadow(-1px 1px rgba(68,68,68,0.5));
+}
+header .container .top .right-side p:nth-of-type(2) {
+  margin-right: 1.72vw;
+}
+header .container .top .right-side p:nth-of-type(2) img {
+  filter: drop-shadow(-1px 1px rgba(68,68,68,0.5));
+}
+header .container .top .right-side p:last-of-type a {
+  border-radius: 2px;
+}
+header .container .top .right-side p:last-of-type img {
+  border-radius: 2px;
+  box-shadow: -1px 1px rgba(68,68,68,0.5);
+}
+header .container .global-nav {
+  margin-bottom: 6.64vw;
+}
+header .container .global-nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+header .container .global-nav ul li {
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  color: #0a4a78;
+}
+header .container .global-nav ul .nav-home {
+  letter-spacing: .08em;
+}
+header .container .global-nav ul .nav-about {
+  letter-spacing: .02em;
+}
+header .container .global-nav ul .nav-menu {
+  letter-spacing: .06em;
+}
+header .container .global-nav ul .nav-counselor {
+  letter-spacing: .02em;
+}
+header .container .global-nav ul .nav-document-request {
+  letter-spacing: .02em;
+}
+header .container .global-nav ul .nav-access {
+  letter-spacing: .06em;
+}
+header .container .global-nav ul .nav-blog {
+  letter-spacing: .08em;
+}
+header .container .global-nav ul .nav-link {
+  letter-spacing: .04em;
+}
+header .container .global-nav ul .on {
+  position: relative;
+}
+header .container .global-nav ul .on::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  border-bottom: 1px solid #0a4a78;
+}
+header .container .global-nav ul .on a {
+  pointer-events: none;
+}
+header .container .global-nav ul .off {
+  position: relative;
+}
+header .container .global-nav ul .off::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  border-bottom: 1px solid #0a4a78;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform .4s;
+}
+header .container .global-nav ul .off:hover::after {
+  transform: scale(1, 1);
+}
+header .container .global-nav ul li a {
+  color: #0a4a78;
+  text-decoration: none;
+}
+header .container h1 {
+  font-size: 2.4rem; /*フォールバック*/
+  font-size: calc(2rem + ((1vw - 0.768rem) * 0.7812));
+  line-height: 2;
+  letter-spacing: .16em;
+  color: #fff;
+  font-weight: normal;
+  text-shadow: 1px 1px 25px rgba(255,255,255,0.5), -1px 1px 25px rgba(255,255,255,0.5), 1px -1px 25px rgba(255,255,255,0.5), -1px -1px 25px rgba(255,255,255,0.5);
+  width: 50%;
+  margin: 0 0 3.91vw auto;
+}
+header .container > p {
+  font-size: 2.4rem; /*フォールバック*/
+  font-size: calc(2rem + ((1vw - 0.768rem) * 0.7812));
+  line-height: 2;
+  letter-spacing: .16em;
+  color: #fff;
+  text-shadow: 1px 1px 25px rgba(255,255,255,0.5), -1px 1px 25px rgba(255,255,255,0.5), 1px -1px 25px rgba(255,255,255,0.5), -1px -1px 25px rgba(255,255,255,0.5);
+  text-align: justify;
+  width: 50%;
+  margin: 0 0 6.64vw auto;
+}
+header .container .scroll {
+  animation: scrolling 1s linear infinite alternate;
+}
+@keyframes scrolling {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(25%);
+  }
+}
+header .container .scroll p {
+  display: inline-block;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 1.8rem; /*フォールバック*/
+  font-size: calc(1.6rem + ((1vw - 0.768rem) * 0.3906));
+  color: #fff;
+  width: 100%;
+}
+header .container .scroll p::after {
+  display: block;
+  content: '';
+  width: 2.19vw;
+  max-width: 28px;
+  height: 2.19vw;
+  max-height: 28px;
+  margin: 0 auto;
+  background: center / cover no-repeat url("../images/arrow_down_white.png");
+}
+header .container .bubble01 {
+  position: absolute;
+  top: 25%;
+  right: 25%;
+  width: 23.44vw;
+  max-width: 300px;
+  height: 23.44vw;
+  max-height: 300px;
+  background: center / cover no-repeat url("../images/bubble.png");
+}
+header .container .bubble02 {
+  position: absolute;
+  top: 50%;
+  right: 20%;
+  width: 11.72vw;
+  max-width: 150px;
+  height: 11.72vw;
+  max-height: 150px;
+  background: center / cover no-repeat url("../images/bubble.png");
+}
+header .container .bubble03 {
+  position: absolute;
+  top: 65%;
+  right: 35%;
+  width: 3.91vw;
+  max-width: 50px;
+  height: 3.91vw;
+  max-height: 50px;
+  background: center / cover no-repeat url("../images/bubble.png");
+}
+/* ↑↑↑↑↑ ヘッダー 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ メイン 開始 ↓↓↓↓↓ */
+/* ↓↓↓↓↓ コンテンツ(ホーム) 開始 ↓↓↓↓↓ */
+main .content {
+  padding: 4.69vw 0 3.52vw 0;
+  background: center / cover no-repeat url(../images/forest.jpg);
+}
+main .content .section01 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1040px;
+  padding: 0 8px;
+  margin: 0 auto;
+}
+main .content .section01 .container h2 {
+  text-align: center;
+  font-size: 2rem; /*フォールバック*/
+  font-size: calc(1.8rem + ((1vw - 0.768rem) * 0.3906));
+  line-height: 1;
+  letter-spacing: .15em;
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 3.52vw;
+}
+main .content .section01 .container h2 span {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .4em;
+}
+main .content .section01 .container .top-side {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3.52vw;
+}
+main .content .section01 .container .top-side p:first-of-type {
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .16em;
+  margin-right: 2.34vw;
+}
+main .content .section01 .container .top-side img {
+  vertical-align: middle;
+  height: 9.38vw;
+  max-height: 120px;
+}
+main .content .section01 .container .bottom-side {
+  margin-bottom: 7.03vw;
+}
+main .content .section01 .container .bottom-side ul {
+  list-style-type: none;
+  display: flex;
+}
+main .content .section01 .container .bottom-side ul li {
+  position: relative;
+}
+main .content .section01 .container .bottom-side ul li a {
+  color: #444;
+}
+main .content .section01 .container .bottom-side ul li p:first-of-type {
+  text-align: center;
+  margin: 0 3.13vw 1.17vw 3.13vw;
+}
+main .content .section01 .container .bottom-side ul li img {
+  vertical-align: middle;
+  height: 7.81vw;
+  max-height: 100px;
+  transform: scale(1);
+  transition: transform .4s ease-out;
+}
+main .content .section01 .container .bottom-side ul li a:hover img {
+  transform: scale(1.2);
+}
+main .content .section01 .container .bottom-side ul li p:last-of-type {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 1.4rem; /*フォールバック*/
+  font-size: calc(1.2rem + ((1vw - 0.768rem) * 0.3906));
+}
+main .content .section01 .container .bottom-side ul .nav-about p:last-of-type {
+  letter-spacing: .01em;
+}
+main .content .section01 .container .bottom-side ul .nav-menu p:last-of-type {
+  letter-spacing: .05em;
+}
+main .content .section01 .container .bottom-side ul .nav-counselor p:last-of-type {
+  letter-spacing: .01em;
+}
+main .content .section01 .container .bottom-side ul .nav-document-request p:last-of-type {
+  letter-spacing: .01em;
+}
+main .content .section01 .container .bottom-side ul .nav-access p:last-of-type {
+  letter-spacing: .05em;
+}
+main .content .section01 .container .bottom-side ul .nav-blog p:last-of-type {
+  letter-spacing: .07em;
+}
+main .content .section01 .container .bottom-side ul .nav-link p:last-of-type {
+  letter-spacing: .03em;
+}
+
+main .content .section02 .container {
+  max-width: 1040px;
+  padding: 0 8px;
+  margin: 0 auto;
+}
+main .content .section02 .container h2 {
+  float: left;
+  font-size: 2rem; /*フォールバック*/
+  font-size: calc(1.8rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .15em;
+  color: #fff;
+  font-weight: normal;
+  margin-bottom: 1.17vw;
+}
+main .content .section02 .container h2 span {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .3em;
+}
+main .content .section02 .container > p {
+  float: right;
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .08em;
+}
+main .content .section02 .container > p a {
+  vertical-align: middle;
+  color: #fff;
+  text-decoration: none;
+}
+main .content .section02 .container > p a::after {
+  display: inline-block;
+  content: '';
+  width: 1.25vw;
+  max-width: 16px;
+  height: 1.25vw;
+  max-height: 16px;
+  background: center / cover no-repeat url("../images/arrow_right_white.png");
+}
+main .content .section02 .container > p a:hover::after {
+  animation: arrow 1s linear infinite;
+}
+@keyframes arrow {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-25%);
+    opacity: 0;
+  }
+}
+main .content .section02 .container dl {
+  clear: both;
+  border-top: 1px dashed #fff;
+}
+main .content .section02 .container dl a {
+  display: flex;
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .16em;
+  color: #fff;
+  text-decoration: none;
+  padding: 1.17vw 0;
+  border-bottom: 1px dashed #fff;
+  transition: all .4s ease-out;
+}
+main .content .section02 .container dl a:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+main .section03 {
+  background-color: #f0f7fc;
+}
+main .section03 .container {
+  position: relative;
+  max-width: 1040px;
+  padding: 0 8px;
+  margin: 0 auto;
+}
+main .section03 .container h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 1.6rem; /*フォールバック*/
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .15em;
+  color: #0a4a78;
+  font-weight: normal;
+  padding: 2.34vw 0;
+}
+main .section03 .container h2 span {
+  font-size: 2rem; /*フォールバック*/
+  font-size: calc(1.8rem + ((1vw - 0.768rem) * 0.3906));
+}
+main .section03 .container .profile {
+  position: relative;
+  z-index: 1;
+  font-size: 1.4rem; /*フォールバック*/
+  font-size: calc(1.2rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .14em;
+  text-align: justify;
+  width: 50%;
+  padding-bottom: 3.91vw;
+}
+main .section03 .container .profile span {
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .12em;
+}
+main .section03 .container .profile span a {
+  color: #0a4a78;
+}
+main .section03 .container .introduction {
+  position: relative;
+  z-index: 1;
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .16em;
+  text-align: justify;
+  width: 50%;
+  padding-bottom: 2.34vw;
+}
+main .section03 .container img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+/* ↑↑↑↑↑ コンテンツ(ホーム) 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ コンテンツ(当サイトについて) 開始 ↓↓↓↓↓ */
+#about header {
+  padding-bottom: 6.64vw;
+  background: center bottom / cover no-repeat url("../images/sky_small.jpg");
+}
+#about header .container .global-nav {
+  margin-bottom: 0;
+}
+#about main {
+  padding: 4.69vw 0;
+}
+#about main .container {
+  max-width: 1040px;
+  padding: 0 8px;
+  margin: 0 auto;
+}
+#about main .container .section01 h2 {
+  text-align: center;
+  font-size: 2rem; /*フォールバック*/
+  font-size: calc(1.8rem + ((1vw - 0.768rem) * 0.3906));
+  line-height: 1;
+  letter-spacing: .15em;
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 3.52vw;
+}
+#about main .container .section01 h2 span {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .4em;
+}
+#about main .container .section01 .text {
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .16em;
+  text-align: justify;
+}
+#about main .container .section01 .text p {
+  margin-bottom: 2.34vw;
+}
+#about main .container .section01 .text p:last-of-type {
+  margin-bottom: 3.52vw;
+}
+#about main .container .section01 .text .end-of-text {
+  text-align: right;
+}
+#about main .container .section01 .text .end-of-text p {
+  text-align: left;
+  display: inline-block;
+  margin-bottom: 0;
+}
+/* ↑↑↑↑↑ コンテンツ(当サイトについて) 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ コンテンツ(メニュー) 開始 ↓↓↓↓↓ */
+#menu header {
+  padding-bottom: 6.64vw;
+  background: center bottom / cover no-repeat url("../images/sky_small.jpg");
+}
+#menu header .container .global-nav {
+  margin-bottom: 0;
+}
+#menu main {
+  padding: 4.69vw 0;
+}
+#menu main .container {
+  max-width: 1040px;
+  padding: 0 8px;
+  margin: 0 auto;
+}
+#menu main .container .section01 h2 {
+  text-align: center;
+  font-size: 2rem; /*フォールバック*/
+  font-size: calc(1.8rem + ((1vw - 0.768rem) * 0.3906));
+  line-height: 1;
+  letter-spacing: .1em;
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 3.52vw;
+}
+#menu main .container .section01 h2 span {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .9em;
+}
+#menu main .container .section01 .foreword {
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .16em;
+  text-align: center;
+  margin-bottom: 3.52vw;
+}
+#menu main .container .section01 .foreword p {
+  text-align: left;
+  display: inline-block;
+}
+#menu main .container .section01 .text {
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .1em;
+  text-align: justify;
+  display: flex;
+  flex-wrap: wrap;
+}
+#menu main .container .section01 .text div {
+  width: 48%;
+  margin: 0 4% 4% 0;
+}
+#menu main .container .section01 .text div:nth-of-type(2n) {
+  margin-right: 0;
+}
+#menu main .container .section01 .text div:last-of-type {
+  margin-bottom: 0;
+}
+#menu main .container .section01 .text div h3 {
+  font-size: 1.8rem; /*フォールバック*/
+  font-size: calc(1.6rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .08em;
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 1%;
+}
+#menu main .container .section01 .text div p:first-of-type {
+  margin-bottom: 1%;
+}
+#menu main .container .section01 .text div table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1%;
+}
+#menu main .container .section01 .text div table tr th {
+  color: #fff;
+  font-weight: normal;
+  text-align: left;
+  width: 44%;
+  padding: 2% 1%;
+  border: 1px solid #444;
+  background-color: #9acff2;
+}
+#menu main .container .section01 .text div table tr td {
+  padding: 2% 1%;
+  border: 1px solid #444;
+}
+#menu main .container .section01 .text div table tr th,
+#menu main .container .section01 .text div table tr td,
+#menu main .container .text .menu-detail-description,
+#menu main .container .text .menu-detail-remarks {
+  word-break: break-all;
+}
+#menu main .container .text .menu-detail-remarks {
+  position: relative;
+  font-size: 1.4rem; /*フォールバック*/
+  font-size: calc(1.2rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .12em;
+  padding-left: 1.4rem; /*フォールバック*/
+  padding-left: calc(1.2rem + ((1vw - 0.768rem) * 0.3906));
+}
+#menu main .container .text .menu-detail-remarks::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '※';
+}
+/* ↑↑↑↑↑ コンテンツ(メニュー) 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ コンテンツ(カウンセラー紹介) 開始 ↓↓↓↓↓ */
+#counselor header {
+  padding-bottom: 6.64vw;
+  background: center bottom / cover no-repeat url("../images/sky_small.jpg");
+}
+#counselor header .container .global-nav {
+  margin-bottom: 0;
+}
+#counselor main {
+  padding: 4.69vw 0;
+}
+#counselor main .container {
+  max-width: 1040px;
+  padding: 0 8px;
+  margin: 0 auto;
+}
+#counselor main .container .section01 h2 {
+  text-align: center;
+  font-size: 2rem; /*フォールバック*/
+  font-size: calc(1.8rem + ((1vw - 0.768rem) * 0.3906));
+  line-height: 1;
+  letter-spacing: .3em;
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 3.52vw;
+}
+#counselor main .container .section01 h2 span {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .2em;
+}
+#counselor main .container .section01 .text {
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .16em;
+  text-align: justify;
+}
+#counselor main .container .section01 .text > div {
+  display: flex;
+  margin-bottom: 3.52vw;
+}
+#counselor main .container .section01 .text > div:last-of-type {
+  margin-bottom: 0;
+}
+#counselor main .container .section01 .text > div > p {
+  margin-right: 2.34vw;
+}
+#counselor main .container .section01 .text > div > p img {
+  height: 20vw;
+  max-height: 300px;
+  filter: drop-shadow(-2px 2px rgba(136,136,136,0.5));
+}
+#counselor main .container .section01 .text > div > div h3 {
+  font-size: 1.8rem; /*フォールバック*/
+  font-size: calc(1.6rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .08em;
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 1.17vw;
+}
+#counselor main .container .section01 .text > div > div p {
+  margin-bottom: .94vw;
+}
+#counselor main .container .section01 .text > div > div p:nth-of-type(2) {
+  position: relative;
+  padding-left: 3.5em;
+}
+#counselor main .container .section01 .text > div > div p:nth-of-type(2)::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '専門：'
+}
+#counselor main .container .section01 .text > div > div p:last-of-type {
+  position: relative;
+  padding-left: 5.75em;
+  margin-bottom: 0;
+}
+#counselor main .container .section01 .text > div > div p:last-of-type::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '所属学会：'
+}
+/* ↑↑↑↑↑ コンテンツ(カウンセラー紹介) 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ コンテンツ(アクセス) 開始 ↓↓↓↓↓ */
+#access header {
+  padding-bottom: 6.64vw;
+  background: center bottom / cover no-repeat url("../images/sky_small.jpg");
+}
+#access header .container .global-nav {
+  margin-bottom: 0;
+}
+#access main {
+  padding: 4.69vw 0;
+}
+#access main .container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+#access main .container .section01 h2 {
+  text-align: center;
+  font-size: 2rem; /*フォールバック*/
+  font-size: calc(1.8rem + ((1vw - 0.768rem) * 0.3906));
+  line-height: 1;
+  letter-spacing: .15em;
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 3.52vw;
+}
+#access main .container .section01 h2 span {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .55em;
+}
+#access main .container .section01 .text {
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .1em;
+}
+#access main .container .section01 .text .access-map {
+  margin-bottom: 5vw;
+}
+#access main .container .section01 .text .access-map iframe {
+  width: 100%;
+  height: 30vw;
+}
+#access main .container .section01 .text .access-map p {
+  position: relative;
+  padding-left: 4.5em;
+  margin-left: 8px;
+}
+#access main .container .section01 .text .access-map p::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '最寄駅：';
+}
+#access main .container .section01 .text .access-guide {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 8px;
+}
+#access main .container .section01 .text .access-guide > div {
+  width: 48%;
+  margin: 0 4% 6% 0;
+}
+#access main .container .section01 .text .access-guide > div:nth-of-type(2n) {
+  margin-right: 0;
+}
+#access main .container .section01 .text .access-guide > div:last-of-type {
+  margin-bottom: 0;
+}
+#access main .container .section01 .text .access-guide > div h3 {
+  font-size: 1.8rem; /*フォールバック*/
+  font-size: calc(1.6rem + ((1vw - 0.768rem) * 0.3906));
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 2.34vw;
+}
+#access main .container .section01 .text .access-guide > div div {
+  margin-bottom: 2.34vw;
+}
+#access main .container .section01 .text .access-guide > div div:last-of-type {
+  margin-bottom: 0;
+}
+#access main .container .section01 .text .access-guide > div div p:first-of-type {
+  position: relative;
+  text-align: left;
+  display: inline-block;
+  padding-left: 1.25em;
+}
+#access main .container .section01 .text .access-guide > div div:first-of-type p:first-of-type::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '①'
+}
+#access main .container .section01 .text .access-guide > div div:nth-of-type(2) p:first-of-type::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '②'
+}
+#access main .container .section01 .text .access-guide > div div:nth-of-type(3) p:first-of-type::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '③'
+}
+#access main .container .section01 .text .access-guide > div div:nth-of-type(4) p:first-of-type::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '④'
+}
+#access main .container .section01 .text .access-guide > div div:nth-of-type(5) p:first-of-type::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '⑤'
+}
+#access main .container .section01 .text .access-guide > div div:nth-of-type(6) p:first-of-type::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '⑥'
+}
+#access main .container .section01 .text .access-guide > div div img {
+  max-width: 100%;
+  height: 32vw;
+  max-height: 410px;
+}
+/* ↑↑↑↑↑ コンテンツ(アクセス) 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ コンテンツ(ブログ) 開始 ↓↓↓↓↓ */
+/* ↑↑↑↑↑ コンテンツ(ブログ) 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ コンテンツ(関連リンク) 開始 ↓↓↓↓↓ */
+#link header {
+  padding-bottom: 6.64vw;
+  background: center bottom / cover no-repeat url("../images/sky_small.jpg");
+}
+#link header .container .global-nav {
+  margin-bottom: 0;
+}
+#link main {
+  padding: 4.69vw 0;
+}
+#link main .container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+#link main .container .section01 h2 {
+  text-align: center;
+  font-size: 2rem; /*フォールバック*/
+  font-size: calc(1.8rem + ((1vw - 0.768rem) * 0.3906));
+  line-height: 1;
+  letter-spacing: .3em;
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 3.52vw;
+}
+#link main .container .section01 h2 span {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .3em;
+}
+#link main .container .section01 .text {
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .1em;
+  text-align: justify;
+}
+#link main .container .section01 .text > div {
+  margin-bottom: 3.52vw;
+}
+#link main .container .section01 .text > div:last-of-type {
+  margin-bottom: 0;
+}
+#link main .container .section01 .text > div h3 {
+  font-size: 1.8rem; /*フォールバック*/
+  font-size: calc(1.6rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .08em;
+  color: #fff;
+  font-weight: normal;
+  padding: .2em 8px;
+  margin-bottom: .2em;
+  background-color: #9acff2;
+}
+#link main .container .section01 .text > div > p {
+  padding: 0 8px;
+  margin-bottom: 2.34vw;
+}
+#link main .container .section01 .text > div > div {
+  padding: 0 8px;
+  margin-bottom: 2.34vw;
+}
+#link main .container .section01 .text > div > div:last-of-type {
+  margin-bottom: 0;
+}
+#link main .container .section01 .text > div > div h4 {
+  font-size: 1.8rem; /*フォールバック*/
+  font-size: calc(1.6rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .08em;
+  color: #0a4a78;
+  font-weight: normal;
+}
+#link main .container .section01 .text > div > div .url {
+  font-size: 1.4rem; /*フォールバック*/
+  font-size: calc(1.2rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .12em;
+  padding-top: .2em;
+}
+#link main .container .section01 .text > div > div .url a {
+  color: #0a4a78;
+}
+/* ↑↑↑↑↑ コンテンツ(関連リンク) 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ コンテンツ(予約・問い合わせ) 開始 ↓↓↓↓↓ */
+#contact header {
+  padding-bottom: 6.64vw;
+  background: center bottom / cover no-repeat url("../images/sky_small.jpg");
+}
+#contact header .container .global-nav {
+  margin-bottom: 0;
+}
+#contact main {
+  padding: 4.69vw 0;
+}
+#contact main .container {
+  max-width: 1040px;
+  padding: 0 8px;
+  margin: 0 auto;
+}
+#contact main .container .section01 h2 {
+  text-align: center;
+  font-size: 2rem; /*フォールバック*/
+  font-size: calc(1.8rem + ((1vw - 0.768rem) * 0.3906));
+  line-height: 1;
+  letter-spacing: .15em;
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 3.52vw;
+}
+#contact main .container .section01 h2 span {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .35em;
+}
+#contact main .container .section01 .text {
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .1em;
+  text-align: justify;
+}
+#contact main .container .section01 .text > p {
+  letter-spacing: .16em;
+  margin-bottom: 3.52vw;
+}
+/* ↓↓↓↓↓ コンタクトフォーム 開始 ↓↓↓↓↓ */
+.wpcf7-form > p {
+  margin-bottom: 2.34vw;
+}
+.wpcf7-form > p:last-of-type {
+  margin-bottom: 0;
+}
+.wpcf7-form div.schedule {
+  margin-bottom: 2.34vw;
+}
+.wpcf7-form div.schedule div.schedule-select {
+  display: flex;
+}
+.wpcf7-form div.schedule div.schedule-select label {
+  width: 30%;
+  margin-right: 5%;
+}
+.wpcf7-form div.schedule div.schedule-select label:last-of-type {
+  margin-right: 0;
+}
+.wpcf7-form div.schedule input[type="text"] {
+  width: 100%;
+}
+.wpcf7-form input::placeholder {
+  color: #ccc;
+  padding: 0 .2em;
+}
+.wpcf7-form input[type="text"] {
+  width: 50%;
+  border: 1px solid #444;
+}
+.wpcf7-form input[type="tel"] {
+  width: 50%;
+  border: 1px solid #444;
+}
+.wpcf7-form input[type="email"] {
+  width: 50%;
+  border: 1px solid #444;
+}
+.wpcf7-form textarea {
+  width: 65%;
+  border: 1px solid #444;
+}
+.wpcf7-form input[type="submit"] {
+  color: #fff;
+  width: 15%;
+  padding: .4em;
+  border-radius: 2px;
+  background-color: #acdb8f;
+  box-shadow: -1px 1px rgba(68,68,68,0.5);
+  transition: all .4s;
+  cursor: pointer;
+}
+.wpcf7-form input[type="submit"]:hover {
+  opacity: .6;
+}
+.wpcf7-form span.required {
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: 0;
+  color: red;
+}
+/* ↑↑↑↑↑ コンタクトフォーム 終了 ↑↑↑↑↑ */
+/* ↑↑↑↑↑ コンテンツ(予約・問い合わせ) 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ 404ページ 開始 ↓↓↓↓↓ */
+#page404 header {
+  padding-bottom: 6.64vw;
+  background: center bottom / cover no-repeat url("../images/sky_small.jpg");
+}
+#page404 header .container .global-nav {
+  margin-bottom: 0;
+}
+#page404 main {
+  padding: 4.69vw 0;
+}
+#page404 main .container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+#page404 main .container .section01 h2 {
+  text-align: center;
+  font-size: 2rem; /*フォールバック*/
+  font-size: calc(1.8rem + ((1vw - 0.768rem) * 0.3906));
+  line-height: 1;
+  letter-spacing: .1em;
+  color: #0a4a78;
+  font-weight: normal;
+  margin-bottom: 3.52vw;
+}
+#page404 main .container .section01 h2 span {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .9em;
+}
+/* ↑↑↑↑↑ 404ページ 終了 ↑↑↑↑↑ */
+/* ↑↑↑↑↑ メイン 終了 ↑↑↑↑↑ */
+
+/* ↓↓↓↓↓ フッター 開始 ↓↓↓↓↓ */
+footer .footer-line {
+  height: 4px;
+  background-color: #ccc;
+}
+footer .container {
+  display: flex;
+  max-width: 1040px;
+  padding: 4.69vw 0 2.34vw 0;
+  padding-left: 8px;
+  margin: 0 auto;
+}
+footer .container .left-side {
+  width: 50vw;
+  max-width: 520px;
+}
+footer .container .left-side .top-side {
+  display: flex;
+  align-items: center;
+}
+footer .container .left-side .top-side p:first-of-type {
+  margin-right: 1.56vw;
+}
+footer .container .left-side .top-side img {
+  height: 4.84vw;
+  max-height: 62px;
+}
+footer .container .left-side .top-side p:last-of-type {
+  font-size: calc(1.4rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .1em;
+}
+footer .container .left-side .top-side p:last-of-type span {
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+}
+footer .container .left-side .bottom-side {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.56vw;
+}
+footer .container .left-side .bottom-side p:first-of-type {
+  margin-right: 1.56vw;
+}
+footer .container .left-side .bottom-side a {
+  border-radius: 2px;
+  background-color: #fff;
+}
+footer .container .left-side .bottom-side a:hover img {
+  opacity: .6;
+}
+footer .container .left-side .bottom-side img {
+  height: 2.34vw;
+  max-height: 30px;
+  border-radius: 2px;
+  box-shadow: -1px 1px rgba(68,68,68,0.5);
+  transition: all .4s;
+}
+footer .container .left-side .bottom-side p:last-of-type {
+  font-size: 1.4rem; /*フォールバック*/
+  font-size: calc(1.2rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .18em;
+}
+footer .container .left-side table {
+  border-collapse: collapse;
+  font-size: 1.4rem; /*フォールバック*/
+  font-size: calc(1.2rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .07em;
+  margin-bottom: 1.56vw;
+}
+footer .container .left-side table tr th {
+  color: #fff;
+  font-weight: normal;
+  width: 3.91vw;
+  max-width: 50px;
+  padding: 4px 0;
+  border: 1px solid #444;
+  background-color: #acdb8f;
+}
+footer .container .left-side table tr th:first-of-type {
+  text-align: left;
+  width: 11.72vw;
+  max-width: 150px;
+  padding-left: 4px;
+}
+footer .container .left-side table tr td {
+  text-align: center;
+  width: 3.91vw;
+  max-width: 50px;
+  padding: 4px 0;
+  border: 1px solid #444;
+}
+footer .container .left-side table tr td:first-of-type {
+  text-align: left;
+  width: 11.72vw;
+  max-width: 150px;
+  padding-left: 4px;
+}
+footer .container .left-side ul {
+  list-style-type: none;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .18em;
+}
+footer .container .left-side ul li {
+  position: relative;
+  padding-left: 1.2rem; /*フォールバック*/
+  padding-left: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+}
+footer .container .left-side ul li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '※';
+}
+footer .container .right-side {
+  position: relative;
+  width: 50vw;
+  max-width: 520px;
+}
+footer .container .right-side iframe {
+  width: 100%;
+  height: 100%;
+}
+footer .container .right-side p {
+  position: absolute;
+  bottom: 0;
+  left: -8%;
+  vertical-align: middle;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .06em;
+  width: 5.86vw;
+  max-width: 75px;
+  height: 5.86vw;
+  max-height: 75px;
+  border: 1px dashed #2f6212;
+  border-radius: 50%;
+  background-color: #fff;
+}
+footer .container .right-side p a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2f6212;
+  text-decoration: none;
+  height: 100%;
+}
+footer .container .right-side p a::after {
+  position: absolute;
+  bottom: 28%;
+  right: 22%;
+  display: block;
+  content: '';
+  width: .94vw;
+  max-width: 12px;
+  height: .94vw;
+  max-height: 12px;
+  background: center / cover no-repeat url("../images/arrow_right_green.png");
+}
+footer .container .right-side p a:hover::after {
+  animation: arrow 1s linear infinite;
+}
+footer .copyright {
+  text-align: center;
+  font-size: 1.2rem; /*フォールバック*/
+  font-size: calc(1rem + ((1vw - 0.768rem) * 0.3906));
+  letter-spacing: .24em;
+  padding-bottom: 2.34vw;
+}
+/* ↑↑↑↑↑ フッター 終了 ↑↑↑↑↑ */
+
+}
