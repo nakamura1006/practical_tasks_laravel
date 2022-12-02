@@ -242,7 +242,7 @@ header .container .bubble03 {
 /* ↓↓↓↓↓ コンテンツ(ホーム) 開始 ↓↓↓↓↓ */
 main .content {
   padding: 4.69vw 0 3.52vw 0;
-  background: center / cover no-repeat url(../images/forest.jpg);
+  background: center / cover no-repeat url("../images/forest.jpg");
 }
 main .content .section01 .container {
   display: flex;

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DocumentRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,8 @@ Route::get('/contact', function () { return view('contact')->with(['bodyId' => '
 Route::get('/counselor', function () { return view('counselor')->with(['bodyId' => 'counselor']); })->name('counselor');
 Route::get('/link', function () { return view('link')->with(['bodyId' => 'link']); })->name('link');
 Route::get('/menu', function () { return view('menu')->with(['bodyId' => 'menu']); })->name('menu');
+
+Route::get('/document_request/input', [DocumentRequestController::class, 'input'])->name('document_request.input');
+Route::post('/document_request/input', [DocumentRequestController::class, 'repair'])->name('document_request.repair');
+Route::post('/document_request/confirm', [DocumentRequestController::class, 'confirm'])->name('document_request.confirm');
+Route::post('/document_request/result', [DocumentRequestController::class, 'result'])->name('document_request.result');
