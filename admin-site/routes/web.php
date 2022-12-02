@@ -13,12 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/top', function () { return view('top'); });
+    Route::get('/', function () { return view('top'); });
 });
 
 Auth::routes([
     'register' => false,    //ユーザ登録画面の無効
     'reset' => false,       //パスワードリセットの無効
 ]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
