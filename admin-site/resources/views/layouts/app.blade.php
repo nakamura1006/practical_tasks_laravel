@@ -6,9 +6,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @guest
-        <title>{{ __('Title Admin Login') }}</title>
+        <title>{{ __('Admin Login') . __('Title Delimiter') . __('Ark Suginami') }}</title>
     @else
-        <title>{{ __('Title Admin Screen') }}</title>
+        <title>{{ __('Admin Screen') . __('Title Delimiter') . __('Ark Suginami') }}</title>
     @endguest
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -56,7 +56,7 @@
             @yield('content')
         </main>
         <footer>
-            <p class="credit">{{ __('Credit') }}</p>
+            <p class="copyright">{{ __('Copyright') }}</p>
         </footer>
     </div>
 </body>
