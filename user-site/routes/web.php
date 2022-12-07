@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocumentRequestController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/access', function () { return view('access')->with(['bodyId' => 'ac
 Route::get('/contact', function () { return view('contact')->with(['bodyId' => 'contact']); })->name('contact');
 Route::get('/counselor', function () { return view('counselor')->with(['bodyId' => 'counselor']); })->name('counselor');
 Route::get('/link', function () { return view('link')->with(['bodyId' => 'link']); })->name('link');
-Route::get('/menu', function () { return view('menu')->with(['bodyId' => 'menu']); })->name('menu');
+Route::get('/menu', [MenuController::class, 'show'])->name('menu');
 
 Route::get('/document_request/input', [DocumentRequestController::class, 'input'])->name('document_request.input');
 Route::post('/document_request/input', [DocumentRequestController::class, 'repair'])->name('document_request.repair');

@@ -47,4 +47,13 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+    {
+        if($exception instanceof \Illuminate\Session\TokenMismatchException) {
+            return redirect()->route('index');
+        }
+
+        return render($request, $exception);
+    }
 }
