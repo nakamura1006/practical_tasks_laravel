@@ -22,11 +22,14 @@ class MenuController extends Controller
 
     public function index(Request $request)
     {
-        $menuArr = Menu::orderBy(
-            !empty($request->get('sort_target')) ? $request->get('sort_target') : 'id',
-            !empty($request->get('sort_mode')) ? $request->get('sort_mode') : 'DESC')
-            ->orderBy('id', 'DESC')
-            ->get();
+        if (!empty($request->get('sort_target')) && !empty($request->get('sort_mode'))) {
+            $menuArr = Menu::orderByRaw($request->get('sort_target') . ' IS NULL ASC')
+                ->orderBy($request->get('sort_target'), $request->get('sort_mode'))
+                ->orderBy('id', 'DESC')
+                ->get();
+        } else {
+            $menuArr = Menu::orderBy('id', 'DESC')->get();
+        }
 
         return view('menu.list')->with(['menuArr' => !empty($menuArr) ? $menuArr : []]);
     }
