@@ -31,13 +31,13 @@
                 <nav class="gl-nav">
                     <ul>
                         <li>
-                            <a href="">{{ __('Top') }}</a>
+                            <a href="/">{{ __('Top') }}</a>
                         </li>
                         <li>
-                            <a href="">{{ __('Problem') }}</a>
+                            <a href="/">{{ __('Problem') }}</a>
                         </li>
                         <li>
-                            <a href="">{{ __('Menu') }}</a>
+                            <a href="{{ route('menu.index') }}">{{ __('Menu') }}</a>
                         </li>
                         <li>
                             <a href="">○○管理</a>

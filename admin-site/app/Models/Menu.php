@@ -9,4 +9,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Menu extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'remarks',
+        'turn',
+        'create_user',
+    ];
+
+    public function details()
+    {
+        return $this->hasMany('App\Models\MenuDetail');
+    }
 }
