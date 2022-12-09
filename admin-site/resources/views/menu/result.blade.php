@@ -4,11 +4,11 @@
 
 <div id="menu">
     <div class="main-result">
-        <p class="subject">メニュー管理完了</p>
+        <p class="subject">{{ __('Menu Manage') . App\Consts\Common::MODE_LIST[$mode] . __('Complete') }}</p>
         @if (!empty($errMsg))
-            <p class="center-align"><{{ $errMsg }}</p>
+            <p class="center-align">{{ $errMsg }}</p>
         @else
-            <p class="center-align msg-complete">完了しました</p>
+            <p class="center-align msg-complete">{{ App\Consts\Common::MODE_LIST[$mode] . __('Complete Msg') }}</p>
         @endif
     </div>
 </div>

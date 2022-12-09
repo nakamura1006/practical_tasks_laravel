@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\QueryException;
 
+use App\Consts\Common;
 use App\Models\Menu;
 use App\Models\MenuDetail;
 use App\Http\Requests\MenuPostRequest;
@@ -22,28 +24,42 @@ class MenuController extends Controller
 
     public function index(Request $request)
     {
-        if (!empty($request->get('sort_target')) && !empty($request->get('sort_mode'))) {
-            $menuArr = Menu::orderByRaw($request->get('sort_target') . ' IS NULL ASC')
-                ->orderBy($request->get('sort_target'), $request->get('sort_mode'))
-                ->orderBy('id', 'DESC')
-                ->get();
-        } else {
-            $menuArr = Menu::orderBy('id', 'DESC')->get();
+        try {
+            if (!empty($request->get('sort_target')) && !empty($request->get('sort_mode'))) {
+                $menuArr = Menu::orderByRaw($request->get('sort_target') . ' IS NULL ASC')
+                    ->orderBy($request->get('sort_target'), $request->get('sort_mode'))
+                    ->orderBy(Menu::COL_ID, 'DESC')
+                    ->get();
+            } else {
+                $menuArr = Menu::orderBy(Menu::COL_ID, 'DESC')->get();
+            }
+
+            if ($menuArr->isEmpty()) {
+                $menuArr = [];
+            }
+        } catch (QueryException $e) {
+            $errMsg = __('DB Error');
         }
 
-        return view('menu.list')->with(['menuArr' => !empty($menuArr) ? $menuArr : []]);
+        return view('menu.list')->with([
+            'menuArr' => $menuArr ?? [],
+            'errMsg' => $errMsg ?? '',
+        ]);
     }
 
     public function create()
     {
         $menu = $this->menu;
         $menu->details[] = $this->menuDetail;
-        return view('menu.input', compact('menu'));
+        return view('menu.input', compact('menu'))->with(['mode' => Common::MODE_CREATE]);
     }
 
     public function createConfirm(MenuPostRequest $request)
     {
-        return view('menu.confirm')->with(['inputs' => $request->all()]);
+        return view('menu.confirm')->with([
+            'mode' => Common::MODE_CREATE,
+            'inputs' => $request->all()
+        ]);
     }
 
     public function createPost(Request $request)
@@ -53,28 +69,6 @@ class MenuController extends Controller
                 ->route('menu.create')
                 ->withInput();
         }
-
-        if (!empty($request->get('add_box'))) {
-            $data = $request->all();
-            $menu = new Menu($data);
-            foreach ($data['detail'] as $val) {
-                $menu->details[] = new MenuDetail($val);
-            }
-            $menu->details[] = $this->menuDetail;
-            return view('menu.input', compact('menu'));
-        }
-
-        if (!empty($request->get('delete_box'))) {
-            $data = $request->all();
-            $menu = new Menu($data);
-            foreach ($data['detail'] as $key => $val) {
-                if ($key === array_key_last($data['detail'])) {
-                    break;
-                }
-                $menu->details[] = new MenuDetail($val);
-            }
-            return view('menu.input', compact('menu'));
-        }
     }
 
     public function store(Request $request)
@@ -82,49 +76,58 @@ class MenuController extends Controller
         try {
             DB::beginTransaction();
 
-            $menu = Menu::create($request->all() + ['create_user' => Auth::id()]);
-
+            $menu = Menu::create($request->all() + [Menu::COL_CREATE_USER => Auth::id()]);
             $menu->details()->createMany($request->get('detail'));
 
             DB::commit();
-        } catch (Exception $e) {
+        } catch (QueryException $e) {
             DB::rollBack();
+            $errMsg = __('DB Error');
         }
 
-        return view('menu.result');
+        return view('menu.result')->with([
+            'mode' => Common::MODE_CREATE,
+            'errMsg' => $errMsg ?? '']);
     }
 
-    public function edit(Menu $menu)
+    public function edit($id)
     {
-        return view('menu.input')->with(['menu' => $menu]);
+        try {
+            $menu = Menu::with(Menu::TABLE_CHILD)->find($id);
+            if ($menu == null) {
+                return redirect()->route('menu.index');
+            }
+
+            if ($menu->details->isEmpty()) {
+                $errMsg = __('DB Error');
+            }
+        } catch (QueryException $e) {
+            $errMsg = __('DB Error');
+        }
+
+        return view('menu.input')->with([
+            'mode' => Common::MODE_EDIT,
+            'menu' => $menu ?? '',
+            'errMsg' => $errMsg ?? '',
+        ]);
     }
 
     public function editConfirm(MenuPostRequest $request, $id)
     {
-        return view('menu.confirm')->with(['inputs' => $request->all(), 'id' => $id]);
+        return view('menu.confirm')->with([
+            'mode' => Common::MODE_EDIT,
+            'id' => $id,
+            'inputs' => $request->all()
+        ]);
     }
 
     public function editPost(Request $request, $id)
     {
         if (!empty($request->get('repair'))) {
             return redirect()
-            ->route('menu.edit', $id)
+                ->route('menu.edit', ['id' => $id])
                 ->withInput();
         }
-
-        $data = $request->all();
-        $menu = new Menu($data);
-        foreach ($data['detail'] as $val) {
-            $menu->details[] = new MenuDetail($val);
-        }
-
-        if (!empty($request->get('add_box'))) {
-            $menu->details[] = $this->menuDetail;
-        } elseif (!empty($request->get('delete_box'))) {
-            $menu->details->pop();
-        }
-        $menu->id = $id;    // idを設定すると子テーブルの情報を自動で取得してしまう為、最後に呼び出して取得させない
-        return view('menu.input', compact('menu'));
     }
 
     public function update(Request $request, $id)
@@ -133,23 +136,35 @@ class MenuController extends Controller
             DB::beginTransaction();
 
             $menu = Menu::find($id);
-            $menu->update($request->all() + ['create_user' => 1]);
+            $menu->update($request->all() + [Menu::COL_CREATE_USER => Auth::id()]);
 
             $menu->details()->delete();
             $menu->details()->createMany($request->get('detail'));
 
             DB::commit();
-        } catch (Exception $e) {
+        } catch (QueryException $e) {
             DB::rollBack();
+            $errMsg = __('DB Error');
         }
 
-        return view('menu.result');
+        return view('menu.result')->with([
+            'mode' => Common::MODE_EDIT,
+            'errMsg' => $errMsg ?? ''
+        ]);
     }
 
     public function destroy($id)
     {
-        $menu = Menu::find($id);
-        $menu->delete();
+        try {
+            if (($menu = Menu::find($id)) != null) {
+                $menu->delete();
+            }
+        } catch (QueryException $e) {
+            return view('menu.list')->with([
+                'menuArr' => [],
+                'errMsg' => __('DB Error'),
+            ]);
+        }
 
         return redirect()->route('menu.index');
     }

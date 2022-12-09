@@ -9,12 +9,41 @@
     "Copyright" : "2021 ebacorp.inc",
 
     "Top": "top",
-    "Problem": "課題管理",
-    "Menu": "メニュー管理",
+    "Problem Manage": "課題管理",
+    "Menu Manage": "メニュー管理",
 
-    "Name": "お名前",
+    "Name": "名前",
     "Email Address": "メールアドレス",
     "Login Id": "ログインID",
     "Password": "パスワード",
-    "Authentication": "認証"
+    "Authentication": "認証",
+
+    "DB Error": "エラーが発生しました 〇〇に連絡してください。",
+
+    "List": "リスト",
+    "Edit": "編集",
+    "Confirm": "確認",
+    "Complete": "完了",
+    "New Registration": "新規登録",
+    "Delete": "削除",
+    "Repair": "修正",
+
+    "Id": "ID",
+    "Menu Name": "メニュー名",
+    "Description": "説明文",
+    "Remarks": "備考",
+    "Turn": "表示順",
+    "Created_at": "登録日時",
+    "Updated_at": "更新日時",
+    "Menu Detail": "メニュー詳細",
+    "Price": "料金",
+
+    "Required Form": "（必須）",
+    "Add Box": "BOX追加",
+    "Delete Box": "BOX削除",
+    "To Confirm": "確認画面へ",
+    "Menu Unregistered Msg": "メニューが登録されていません",
+
+    "Complete Msg": "完了しました"
+
 }

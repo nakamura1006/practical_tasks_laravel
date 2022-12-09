@@ -4,47 +4,43 @@
 
 <div id="menu">
     <div class="main-confirm">
-        <p class="subject">メニュー管理確認</p>
+        <p class="subject">{{ __('Menu Manage') . App\Consts\Common::MODE_LIST[$mode] . __('Confirm') }}</p>
         <table>
             @if (!empty($id))
                 <tr>
-                    <th>ID</th>
+                    <th>{{ __('Id') }}</th>
                     <td colspan="3">{{ $id }}</td>
                 </tr>
             @endif
             <tr>
-                <th>メニュー名</th>
+                <th>{{ __('Menu Name') }}</th>
                 <td colspan="3">{{ $inputs['name'] }}</td>
             </tr>
             <tr>
-                <th>説明文</th>
+                <th>{{ __('Description') }}</th>
                 <td colspan="3" class="td-description">{!! nl2br($inputs['description']) !!}</td>
             </tr>
             <tr>
-                <th>備考</th>
+                <th>{{ __('Remarks') }}</th>
                 <td colspan="3" class="td-remarks">{!! nl2br($inputs['remarks']) !!}</td>
             </tr>
             <tr>
-                <th>表示順</th>
+                <th>{{ __('Turn') }}</th>
                 <td colspan="3" class="td-turn">{{ $inputs['turn'] }}</td>
             </tr>
             <tr>
-                <th rowspan="{{ count($inputs['detail']) }}">メニュー詳細</th>
+                <th rowspan="{{ count($inputs['detail']) }}">{{ __('Menu Detail') }}</th>
                 @foreach ($inputs['detail'] as $val)
-                        <td class="detail-turn">表示順：{{ $val['turn'] }}</td>
-                        <td class="detail-name">名前：{{ $val['name'] }}</td>
-                        <td class="detail-price">料金：{{ $val['price'] }}</td>
+                        <td class="detail-turn">{{ __('Turn') }}：{{ $val['turn'] }}</td>
+                        <td class="detail-name">{{ __('Name') }}：{{ $val['name'] }}</td>
+                        <td class="detail-price">{{ __('Price') }}：{{ $val['price'] }}</td>
                     </tr>
                     @if ($val != end($inputs['detail']))
                         <tr>
                     @endif
                 @endforeach
         </table>
-        @if (!empty($id))
-            <form action="{{ route('menu.update', $id) }}" method="post" novalidate>
-        @else
-            <form action="{{ route('menu.store') }}" method="post" novalidate>
-        @endif
+        <form action="{{ $mode == 'edit' ? route('menu.update', ['id' => $id]) : route('menu.store') }}" method="post" novalidate>
             @csrf
             <input type="hidden" name="name" value="{{ $inputs['name'] }}">
             <input type="hidden" name="description" value="{{ $inputs['description'] }}">
@@ -56,12 +52,8 @@
                 <input type="hidden" name="detail[{{ $key }}][price]" value="{{ $val['price'] }}">
             @endforeach
             <div class="form-submit">
-                @if (!empty($id))
-                    <p><input type="submit" class="submit-repair" name="repair" value="修正" formaction="{{ route('menu.edit', $id) }}"></p>
-                @else
-                    <p><input type="submit" class="submit-repair" name="repair" value="修正" formaction="{{ route('menu.create') }}"></p>
-                @endif
-                <p><input type="submit" value="完了"></p>
+                <p><input type="submit" class="submit-repair" name="repair" value="{{ __('Repair') }}" formaction="{{ $mode == 'edit' ? route('menu.edit', ['id' => $id]) : route('menu.create') }}"></p>
+                <p><input type="submit" value="{{ App\Consts\Common::MODE_LIST[$mode] . __('Complete') }}"></p>
             </div>
         </form>
     </div>

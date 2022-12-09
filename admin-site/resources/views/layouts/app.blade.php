@@ -34,10 +34,10 @@
                             <a href="/">{{ __('Top') }}</a>
                         </li>
                         <li>
-                            <a href="/">{{ __('Problem') }}</a>
+                            <a href="/">{{ __('Problem Manage') }}</a>
                         </li>
                         <li>
-                            <a href="{{ route('menu.index') }}">{{ __('Menu') }}</a>
+                            <a href="{{ route('menu.index') }}">{{ __('Menu Manage') }}</a>
                         </li>
                         <li>
                             <a href="">○○管理</a>

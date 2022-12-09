@@ -4,7 +4,7 @@
 
 <div id="menu">
     <div class="main-list">
-        <p class="subject">メニュー管理リスト</p>
+        <p class="subject">{{ __('Menu Manage') . __('List') }}</p>
         @if (!empty($errMsg))
             <p class="center-align">{{ $errMsg }}</p>
         @else
@@ -12,21 +12,21 @@
                 <tr>
                     <th>
                         <a class="sort-button" href="?sort_target=id&sort_mode=ASC">▲</a>
-                        ID
+                        {{ __('Id') }}
                         <a class="sort-button" href="?sort_target=id&sort_mode=DESC">▼</a>
                     </th>
                     <th>
                         <a class="sort-button" href="?sort_target=name&sort_mode=ASC">▲</a>
-                        メニュー名
+                        {{ __('Menu Name') }}
                         <a class="sort-button" href="?sort_target=name&sort_mode=DESC">▼</a>
                     </th>
-                    <th>登録日時</th>
+                    <th>{{ __('Created_at') }}</th>
                     <th>
                         <a class="sort-button" href="?sort_target=updated_at&sort_mode=ASC">▲</a>
-                        更新日時
+                        {{ __('Updated_at') }}
                         <a class="sort-button" href="?sort_target=updated_at&sort_mode=DESC">▼</a>
                     </th>
-                    <th><a class="list-button" href="{{ route('menu.create') }}">新規登録</a></th>
+                    <th><a class="list-button" href="{{ route('menu.create') }}">{{ __('New Registration') }}</a></th>
                 </tr>
                 @foreach ($menuArr as $val)
                     <tr>
@@ -35,18 +35,18 @@
                         <td>{{ $val['created_at'] }}</td>
                         <td>{{ $val['updated_at'] }}</td>
                         <td>
-                            <a class="list-button" href="{{ route('menu.edit', $val['id']) }}">編集</a>
-                            <form action="{{ route('menu.destroy', $val['id']) }}" method="post" novalidate>
+                            <a class="list-button" href="{{ route('menu.edit', ['id' => $val['id']]) }}">{{ __('Edit') }}</a>
+                            <form action="{{ route('menu.destroy', ['id' => $val['id']]) }}" method="post" novalidate>
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="list-submit" name="delete" value="削除" onClick="return confirm('本当に削除しますか？');">
+                                <input type="submit" class="list-submit" value="{{ __('Delete') }}" onClick="return confirm('本当に削除しますか？');">
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </table>
             @if (empty($menuArr))
-                <p class="center-align">メニューが登録されていません</p>
+                <p class="center-align">{{ __('Menu Unregistered Msg') }}</p>
             @endif
         @endif
     </div>
